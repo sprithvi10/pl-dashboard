@@ -1,3 +1,6 @@
+# Link to Hosted Website
+https://sprithvi10.github.io/pl-dashboard/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -5,6 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install recharts`
+
+Powers the line chart that shows all visible players' values for the hovered month in one place on the site.
 
 ### `npm start`
 
