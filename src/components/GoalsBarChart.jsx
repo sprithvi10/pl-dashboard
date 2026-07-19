@@ -64,7 +64,7 @@ export default function GoalsBarChart({ t }) {
 
   return (
     <section className="chart-card" aria-labelledby="chart1-title">
-      <h2 id="chart1-title" className="chart-title">{title}&nbsp; 🥅</h2>
+      <h2 id="chart1-title" className="chart-title">{title}&nbsp; 👟</h2>
       <p className="chart-context">{t[config.contextKey]}</p>
 
       <div className="chart-controls">
