@@ -50,6 +50,19 @@ export const PLAYERS_GOALS = [
   { id: "kroupi", name: "Eli Junior Kroupi", team: "AFC Bournemouth", goals: 13 },
 ];
 
+export const PLAYERS_ASSISTS = [
+  { id: "brunofernandes", name: "Bruno Fernandes", team: "Manchester United", assists: 21, leader: true },
+  { id: "cherki", name: "Rayan Cherki", team: "Manchester City", assists: 12 },
+  { id: "bowen", name: "Jarrod Bowen", team: "West Ham United", assists: 11 },
+  { id: "haaland", name: "Erling Haaland", team: "Manchester City", assists: 8 },
+  { id: "szoboszlai", name: "Dominik Szoboszlai", team: "Liverpool", assists: 7 },
+  { id: "garner", name: "James Garner", team: "Everton", assists: 7 },
+  { id: "harrywilson", name: "Harry Wilson", team: "Leeds United", assists: 7 },
+  { id: "salah", name: "Mohamed Salah", team: "Liverpool", assists: 7 },
+  { id: "xhaka", name: "Granit Xhaka", team: "Sunderland Association", assists: 6 },
+  { id: "enzolefee", name: "Enzo Le Fée", team: "Sunderland Association", assists: 6 },
+];
+
 // Months of the PL season, Aug -> May
 export const MONTH_KEYS = ["aug", "sep", "oct", "nov", "dec", "jan", "feb", "mar", "apr", "may"];
 
@@ -57,13 +70,18 @@ export const RACE_PLAYERS = [
   { id: "haaland", name: "Erling Haaland", color: "#F2B705" },
   { id: "thiago", name: "Igor Thiago", color: "#4CC9F0" },
   { id: "semenyo", name: "Antoine Semenyo", color: "#FF6B6B" },
+  { id: "watkins", name: "Ollie Watkins", color: "#A78BFA" },
+  { id: "joaopedro", name: "João Pedro", color: "#34D399" },
 ];
 
-// Cumulative goals at the end of each month (approximate — see note above)
+// Cumulative goals at the end of each month (approximate — see note above).
+// Final totals match the published PLAYERS_GOALS tallies exactly.
 export const RACE_CUMULATIVE = {
   haaland: [2, 8, 13, 15, 19, 20, 21, 22, 25, 27],
   thiago: [1, 4, 7, 10, 10, 16, 18, 19, 21, 22],
   semenyo: [2, 6, 6, 6, 9, 11, 15, 15, 16, 17],
+  watkins: [1, 3, 5, 7, 9, 10, 11, 12, 14, 16],
+  joaopedro: [1, 2, 4, 6, 7, 9, 10, 11, 13, 15],
 };
 
 export const TRANSLATIONS = {
@@ -83,12 +101,18 @@ export const TRANSLATIONS = {
       { labelKey: "tickerGlove", value: "David Raya · 19 clean sheets" },
     ],
     tickerGoldenBoot: "Golden Boot",
-    tickerPlaymaker: "Playmaker Award",
+    tickerPlaymaker: "Golden Playmaker",
     tickerGlove: "Golden Glove",
 
-    chart1Title: "Top goal scorers",
-    chart1Context:
+    chart1TitleGoals: "Top goal scorers",
+    chart1TitleAssists: "Top assist providers",
+    chart1ContextGoals:
       "Compare the league's top scorers. Select how many players are shown, or narrow the list to a single club.",
+    chart1ContextAssists:
+      "Compare the league's top playmakers. Select how many players are shown, or narrow the list to a single club.",
+    chart1MetricLabel: "Stat",
+    chart1MetricGoals: "Goals",
+    chart1MetricAssists: "Assists",
     chart1ShowLabel: "Show",
     chart1Top5: "Top 5",
     chart1Top10: "Top 10",
@@ -96,13 +120,16 @@ export const TRANSLATIONS = {
     chart1ClubAll: "All clubs",
     chart1Unit: "goals",
     chart1UnitOne: "goal",
+    chart1UnitAssists: "assists",
+    chart1UnitAssistsOne: "assist",
     chart1LeaderTag: "Golden Boot",
-    chart1Empty: "No players from this club appear in the top scorers list.",
+    chart1LeaderTagAssists: "Golden Playmaker",
+    chart1Empty: "No players from this club appear in this list.",
     chart1Source: "Source: premierleague.com & footballtransfers.com",
 
     chart2Title: "The Golden Boot race",
     chart2Context:
-      "View the season-long scoring duel between Haaland, Thiago and Semenyo developed month by month. Toggle players on or off, and switch between running totals and monthly form.",
+      "View how the season-long scoring race between the league's top five scorers developed month by month. Toggle players on or off, and switch between running totals and monthly form.",
     chart2ViewLabel: "View",
     chart2ViewCumulative: "Running total",
     chart2ViewMonthly: "Goals per month",
@@ -133,12 +160,18 @@ export const TRANSLATIONS = {
       { labelKey: "tickerGlove", value: "David Raya · 19 matchs sans but encaissé" },
     ],
     tickerGoldenBoot: "Soulier d'or",
-    tickerPlaymaker: "Prix du passeur",
+    tickerPlaymaker: "Passeur d'or",
     tickerGlove: "Gant d'or",
 
-    chart1Title: "Meilleurs buteurs",
-    chart1Context:
+    chart1TitleGoals: "Meilleurs buteurs",
+    chart1TitleAssists: "Meilleurs passeurs",
+    chart1ContextGoals:
       "Comparez les meilleurs buteurs du championnat. Choisissez le nombre de joueurs à afficher ou restreignez la liste à un seul club.",
+    chart1ContextAssists:
+      "Comparez les meilleurs passeurs du championnat. Choisissez le nombre de joueurs à afficher ou restreignez la liste à un seul club.",
+    chart1MetricLabel: "Statistique",
+    chart1MetricGoals: "Buts",
+    chart1MetricAssists: "Passes décisives",
     chart1ShowLabel: "Afficher",
     chart1Top5: "Top 5",
     chart1Top10: "Top 10",
@@ -146,13 +179,16 @@ export const TRANSLATIONS = {
     chart1ClubAll: "Tous les clubs",
     chart1Unit: "buts",
     chart1UnitOne: "but",
+    chart1UnitAssists: "passes décisives",
+    chart1UnitAssistsOne: "passe décisive",
     chart1LeaderTag: "Soulier d'or",
-    chart1Empty: "Aucun joueur de ce club ne figure dans le classement des buteurs.",
+    chart1LeaderTagAssists: "Passeur d'or",
+    chart1Empty: "Aucun joueur de ce club ne figure dans cette liste.",
     chart1Source: "Source: premierleague.com et footballtransfers.com",
 
     chart2Title: "La course au Soulier d'or",
     chart2Context:
-      "Découvrez le duel de buteurs qui a opposé Haaland, Thiago et Semenyo tout au long de la saison, mois après mois. Activez ou désactivez l'affichage des joueurs et passez du cumul des buts à la forme du mois.",
+      "Découvrez comment la course aux buts entre les cinq meilleurs buteurs du championnat a évolué mois après mois. Activez ou désactivez l'affichage des joueurs et passez du cumul des buts à la forme du mois.",
     chart2ViewLabel: "Affichage",
     chart2ViewCumulative: "Total cumulatif",
     chart2ViewMonthly: "Buts par mois",
