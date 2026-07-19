@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pl-dashboard/static/css/main.f1942543.css",
+    "main.js": "/pl-dashboard/static/js/main.65ef390c.js",
+    "index.html": "/pl-dashboard/index.html",
+    "main.f1942543.css.map": "/pl-dashboard/static/css/main.f1942543.css.map",
+    "main.65ef390c.js.map": "/pl-dashboard/static/js/main.65ef390c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1942543.css",
+    "static/js/main.65ef390c.js"
+  ]
+}
